@@ -44,12 +44,12 @@
 .timeline-actions__button--post::before {
 	width: 52px;
 	aspect-ratio: 512/446;
-	mask-image: url("../../images/icon/post.svg");
+	mask-image: url("../images/icon/post.svg");
 }
 .timeline-actions__button--setting::before {
 	width: 35px;
 	aspect-ratio: 342/512;
-	mask-image: url("../../images/icon/user.svg");
+	mask-image: url("../images/icon/user.svg");
 }
 .timeline-note {
 	margin-top: 20px;
