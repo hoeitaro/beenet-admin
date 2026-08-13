@@ -1,0 +1,462 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>風俗びーねっと－管理ページ</title>
+    <link
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+      media="screen"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/static/css/jquery.bxslider.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/static/css/index.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <style>
+      .badge {
+        position: absolute;
+        top: 10px;
+        left: 28px;
+        font-size: 14px;
+        line-height: 13px;
+        border-radius: 50%;
+        width: 21px;
+        height: 21px;
+        background-color: #ff0000;
+        border: 4px solid #ff0000;
+        color: #ffffff;
+        text-align: center;
+      }
+    </style>
+    <!-- header -->
+    <header>
+      <div class="bar" id="bar">
+        <div class="btn_bar">
+          <a class="h0" href="https://www.bee-net.co.jp/shop/1/" target="_blank">掲載ページを見る</a>
+        </div>
+        <div class="bar_r">
+          <div class="user">高収入びーねっと！</div>
+          <ul class="li_barNav">
+            <li><a class="li_bar_index" href="/manage/top/">トップページ</a></li>
+            <li><a class="li_bar_info" href="/manage/notice/">お知らせ</a><span class="badge">！</span></li>
+            <li><a class="li_bar_logOut" href="/top/auth/logout/">ログアウト</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <div class="wrapper clearfix">
+      <div class="side" id="side_nav">
+        <div class="side_boxT">
+          <dl class="side_admin">
+            <dt>びーねっと管理ページ</dt>
+            <dd class="data">
+              <div>－</div>
+              <div><span class="f_em">－</span></div>
+            </dd>
+          </dl>
+          <!-- /.side_admin -->
+
+          <div class="side_banner-status">
+            <div class="side_banner-status_heading">バナー購入枠 申し込み状況</div>
+            <div class="side_banner-status_plan">〇〇プランで掲載中</div>
+            <div class="side_banner-status_period">掲載期間<br />00/00/00まで</div>
+          </div>
+
+          <div class="side_update">
+            <div class="side_update1">
+              <a id="updaterank" href="/manage/top/updaterank/">
+                <div class="icon">上位更新を実行する<br />本日あと<span class="f_c_ee037c">－</span>回</div>
+                <div class="side_update1_date"><span class="f_em">上位更新</span>&nbsp;‐‐‐‐/‐‐/‐‐&nbsp;‐‐:‐‐</div>
+              </a>
+            </div>
+            <!--/.side_update1 -->
+
+            <a href="/manage/rank/">
+              <div class="side_update2 icon">
+                <div>自動更新を設定する</div>
+                <span class="info_unset">未設定</span>
+              </div>
+              <!--/.side_update2 -->
+            </a>
+          </div>
+          <!-- /.side_update -->
+        </div>
+        <!-- /.side_boxT -->
+
+        <ul class="nav_g">
+          <li>
+            <div class="nav_g_li1 nav_g_info1">応募情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area">
+                <a href="/manage/oubo/">応募情報一覧</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="nav_g_li1 nav_g_feature">特集</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area">
+                <a href="/manage/dekasegi/ini/">出稼ぎ特集</a>
+              </li>
+              <li class="link_box link_area">
+                <a href="/manage/tainyu/ini/">即日体入特集</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="nav_g_li1 nav_g_info2">基本情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/shop/ini/">店舗情報・募集内容</a></li>
+              <li class="link_box link_area"><a href="/manage/img/">大画像設定</a></li>
+              <li class="link_box link_area"><a href="/manage/kodawari/">こだわり設定</a></li>
+              <li class="link_box link_area"><a href="/manage/point/ini/">求人注目ポイント</a></li>
+              <li class="link_box link_area">
+                <a href="/manage/match/">マッチング</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_contents">コンテンツ</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/timeline/">Beeglam 店舗タイムライン</a></li>
+              <li class="link_box link_area"><a href="/manage/shopqa/">よくある質問</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_option">オプション</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="">バナー掲載枠購入　お申し込み</a></li>
+            </ul>
+            <div class="nav-g-info">近日公開予定！</div>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_account">アカウント情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/account/">パスワード変更</a></li>
+              <li class="link_box link_area"><a href="/manage/shop/tantou/ini/">ご連絡先</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav_g_btn">
+          <li class="hO">
+            <a class="nav_g_pdf" href="https://www.bee-net.co.jp/data/manual_01.pdf" target="_blank"
+              >管理画面説明書(PDF)</a
+            >
+          </li>
+          <li class="hO">
+            <a class="nav_g_contact" href="/manage/form/ini/">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.side -->
+
+      <!-- contents -->
+
+      <div class="contents">
+        <section class="sec_recommended">
+          <div class="center">
+            <h2 class="ttl_recommended">おすすめコンテンツ・キャンペーンのご紹介</h2>
+          </div>
+
+          <div class="slider_recommended">
+            <ul class="li_recommended clearfix">
+              <li>
+                <a href="/manage/dekasegi/ini/">
+                  <img class="hO" src="/static/images/bnr6.png" width="300" height="380" alt="出稼ぎ特集" />
+                </a>
+              </li>
+              <li>
+                <a href="/manage/tainyu/ini/">
+                  <img class="hO" src="/static/images/bnr5.png" width="300" height="380" alt="即日体入特集" />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.bee-net.co.jp/ask/option.html" target="_blank">
+                  <img class="hO" src="/static/images/bnr2.png" width="300" height="380" alt="サイドバナ－無料掲載" />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.bee-net.co.jp/ask/plan_s.html" target="_blank">
+                  <img class="hO" src="/static/images/bnr1.png" width="300" height="380" alt="Sプランがパワーアップ" />
+                </a>
+              </li>
+              <li>
+                <a href="/manage/userqa/">
+                  <img class="hO" src="/static/images/bnr3.png" width="300" height="380" alt="風俗嬢Q&A掲示板" />
+                </a>
+              </li>
+              <li>
+                <a href="/manage/wanted/">
+                  <img class="hO" src="/static/images/bnr4.png" width="300" height="380" alt="求人・体入速報" />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.slider_recommended -->
+        </section>
+        <!-- /.sec_recommended -->
+
+        <ul class="info1">
+          <li class="info1_timeline">
+            <div class="info1_timeline_inner">
+              <div class="ttl_info1">店舗タイムライン投稿</div>
+              <div class="data_info1">今月残り<span>120</span>件</div>
+              <div class="date_info1">更新日 2019/08/02 19:51</div>
+            </div>
+            <a href="" class="info1_timeline_button hO">投稿する</a>
+          </li>
+          <li class="info1_dekasegi hO">
+            <a href="/manage/dekasegi/" class="info1_link">
+              <div class="ttl_info1">出稼ぎ特集</div>
+              <div class="data_info1"><span>設定済</span></div>
+              <div>更新日 2018/08/28 12:02</div>
+            </a>
+          </li>
+          <li class="info1_taikennyuten hO">
+            <a href="/manage/tainyu/" class="info1_link">
+              <div class="ttl_info1">即日体入特集</div>
+              <div class="data_info1"><span>設定済</span></div>
+              <div>更新日 2018/08/28 12:03</div>
+            </a>
+          </li>
+          <li class="info1_match hO">
+            <a href="/manage/match/" class="info1_link">
+              <div class="ttl_info1">マッチング</div>
+              <div class="data_info1"><span>設定済</span></div>
+              <div>　</div>
+            </a>
+          </li>
+          <li class="info1_q hO">
+            <a href="/manage/shopqa/" class="info1_link">
+              <div class="ttl_info1">よくある質問</div>
+              <div class="data_info1">あと<span>17</span>件</div>
+              <div>更新日 2018/07/11 14:27</div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.info1 -->
+
+        <ul class="info2">
+          <li class="info2_item">
+            <div class="txt">LINEの登録がされていません。LINEからの応募が増えていますので、ぜひ登録してください。</div>
+            <a class="btn" href="/manage/shop/#hLine">変更する</a>
+          </li>
+        </ul>
+        <!-- /.info2 -->
+
+        <section class="sec_info">
+          <div class="ttl_wrap">
+            <h2 class="ttl2">お知らせ</h2>
+            <div>
+              <a class="ttl_btn" href="/manage/notice/">お知らせ一覧</a>
+            </div>
+          </div>
+          <ul class="infomation list pattern modal_wrapper">
+            <li class="li_item">
+              <div class="date">2026/05/13</div>
+              <div class="ttl">
+                <a class="modal_on" href="#">システムメンテナンスのお知らせ（2026年5月14日 13:00〜13:30）</a>
+              </div>
+              <div class="txt">
+                平素よりびーねっとをご利用いただきありがとうございます。<br />
+                下記日時にてシステムメンテナンスを実施いたします。<br />
+                <br />
+                実施日時: 2026年5月14日（木）13:00〜13:30<br />
+                メンテナンス中は、サイトの閲覧および一部機能をご利用いただけない場合がございます。<br />
+                作業状況により、終了時刻が前後する場合があります。<br />
+                <br />
+                ご利用のお客様にはご不便をおかけいたしますが、何卒ご理解いただけますようお願い申し上げます
+              </div>
+            </li>
+            <li class="li_item">
+              <div class="date">2026/02/25</div>
+              <div class="ttl">
+                <a class="modal_on" href="#">システムメンテナンスのお知らせ（2026年2月26日 13:00〜15:00）</a>
+              </div>
+              <div class="txt">
+                平素よりびーねっとをご利用いただきありがとうございます。<br />
+                下記日時にてシステムメンテナンスを実施いたします。<br />
+                <br />
+                実施日時: 2026年2月26日（木）13:00〜15:00<br />
+                メンテナンス中は、サイトの閲覧および一部機能をご利用いただけない場合がございます。<br />
+                作業状況により、終了時刻が前後する場合があります。<br />
+                <br />
+                ご利用のお客様にはご不便をおかけいたしますが、何卒ご理解いただけますようお願い申し上げます。
+              </div>
+            </li>
+            <li class="li_item">
+              <div class="date">2025/04/28</div>
+              <div class="ttl">
+                <a class="modal_on" href="#">大画像バナー作成サービス終了のお知らせ</a>
+              </div>
+              <div class="txt">
+                いつも、びーねっとをご利用いただきありがとうございます。<br />
+                <br />
+                このたび「大画像バナー作成サービス」を終了することとなりました。<br />
+                お客様にはご不便をおかけいたしますが、何卒ご理解賜りますようお願い申し上げます。<br />
+                長らくご愛顧いただき、誠にありがとうございました。<br />
+                <br />
+                今後とも、「びーねっと」をよろしくお願いいたします。
+              </div>
+            </li>
+            <li class="li_item">
+              <div class="date">2021/01/04</div>
+              <div class="ttl">
+                <a class="modal_on" href="#"
+                  ><span style="color: #ff0000">【重要】いたずら応募に関するお知らせとお願い </span></a
+                >
+              </div>
+              <div class="txt">
+                「びーねっと」で1/4の12:06、12:11 にありました応募に関しまして、<br />
+                いたずら応募であることを確認いたしました。<br />
+                下記の電話番号を含む応募・お問い合わせがあった際は、<br />
+                【返信・電話】共に行わないようお願いいたします。<br />
+                <br />
+                090-66**-49**<br />
+                <br />
+                ※個人情報となる為、一部伏せ字とさせて頂いております<br />
+                <br />
+                なお、上記いたずら応募に関しては応募をブロックするよう対処しております。<br />
+                店舗様に多大なるご迷惑をお掛けしたことを深くお詫び申し上げます。
+              </div>
+            </li>
+            <li class="li_item">
+              <div class="date">2020/06/24</div>
+              <div class="ttl">
+                <a class="modal_on" href="#"
+                  ><span style="color: #ff0000">【重要】いたずら応募に関するお知らせとお願い </span></a
+                >
+              </div>
+              <div class="txt">
+                「びーねっと」で本日、6月24日 10:55～17:05 にかけて、<br />
+                いたずらでの応募が行われていた事を確認いたしました。<br />
+                <br />
+                応募内容に無関係な方の電話番号記載があったため、<br />
+                下記の電話番号を含む応募・お問い合わせがあった際は、<br />
+                【返信・電話】共に行わないようお願いいたします。<br />
+                <br />
+                046-27*-84**<br />
+                <br />
+                ※個人情報となる為、一部伏せ字とさせて頂いております<br />
+                <br />
+                この度は、店舗様に多大なるご迷惑をお掛けしたことを深くお詫び申し上げます。<br />
+                <br />
+                <br />
+                【2020/6/25 追記】<br />
+                上記、いたずら応募に関して応募をブロックするよう対処いたしました。
+              </div>
+            </li>
+          </ul>
+          <!-- /.infomation -->
+          <div class="modal">
+            <div class="item_modal modal_infomation">
+              <div class="ttl_modal">びーねっとからのお知らせ</div>
+              <div class="date"></div>
+              <dl>
+                <dt></dt>
+                <dd></dd>
+              </dl>
+              <div class="close_modal close_modal_infomation">×</div>
+            </div>
+            <div class="bk_modal bk_modal_infomation"></div>
+          </div>
+          <!-- /.modal -->
+        </section>
+        <!-- /.sec_info -->
+      </div>
+      <!-- /.contents -->
+    </div>
+
+    <!-- footer -->
+    <p class="copyright">&copy;2001-2026 風俗求人高収入アルバイト情報サイトびーねっと All rights reserved.</p>
+    <a class="page_top guide" href="#">
+      <img src="/static/images/arrow_pageTop.png" width="20" height="21" alt="ページの上部に移動する" />
+    </a>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    ></script>
+    <script type="text/javascript" src="/static/js/jquery.blockUI.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/jquery.bxslider.min.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/jquery.easie.1.3.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/common.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/sys/common.js?20260529_0"></script>
+    <script type="text/javascript">
+      //<!--
+      if ($(".top-info").length > 0) {
+        $(".top-info").addClass("active");
+
+        $(document).on("click", ".top-info_checkbox + label", function () {
+          if (!$(".top-info_checkbox").prop("checked")) {
+            $(".top-info_btn").addClass("active");
+          } else {
+            $(".top-info_btn").removeClass("active");
+          }
+        });
+
+        $(document).on("click", ".top-info_btn.active", function () {
+          const params = {
+            shop_id: 1,
+          };
+          const url = location.href + "async-update-shop-read";
+          $.post(url, params)
+            .done(function (response) {
+              response = JSON.parse(response);
+              // データがある時
+              if (response.status === "success") {
+                $(".top-info").fadeOut();
+              } else if (res.status === "error") {
+                alert("ただいま混み合っております。しばらく経ってから再度実行してください。");
+              }
+            })
+            .fail(function (a) {
+              alert("ただいま混み合っております。しばらく経ってから再度実行してください。");
+            });
+        });
+      }
+      //-->
+    </script>
+    <script>
+      // 最初の実行（htmlの読み込み完了後）
+      //window.onload = function () {
+      //  TimerCount();
+      //}
+
+      //function TimerCount(){
+      //  var xhr=new XMLHttpRequest();
+      //  // 非同期でリクエストを送信
+      //  xhr.open('POST', '/manage/top/leftnav/shop_id/1', true);
+      //  xhr.send();
+      //
+      //  // readyStateでリクエストの状態を判定
+      //  //   ・onreadystatechangeはreadyStateが変更されたタイミングで呼び出されます。
+      //  //   ・readyStateの内容は以下の通り
+      //  //   0:初期状態
+      //  //   1:リクエスト未送信(opne()後)
+      //  //   2:レスポンス未受信(send()後)
+      //  //   3:レスポンス中(サーバデータ受信中*firefoxではサイズの大きいデータ受信時は複数回発生することがあります)
+      //  //   4:レスポンス受信(サーバデータ受信完了)
+      //  xhr.onreadystatechange = function() {
+      //    if(this.readyState == 4) {
+      //      // 非同期のステータスが完了(4)の場合は後続処理
+      //      if(this.status == 200) {
+      //        // 正常終了(200)なら、レスポンスの内容を反映
+      //        document.getElementById("side_nav").innerHTML= xhr.responseText;
+      //      }
+      //    }
+      //  }
+      //}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>風俗びーねっと－管理ページ</title>
+    <link
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+      media="screen"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/static/css/jquery.bxslider.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/static/css/index.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/static/css/timeline.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <style>
+      .badge {
+        position: absolute;
+        top: 10px;
+        left: 28px;
+        font-size: 14px;
+        line-height: 13px;
+        border-radius: 50%;
+        width: 21px;
+        height: 21px;
+        background-color: #ff0000;
+        border: 4px solid #ff0000;
+        color: #ffffff;
+        text-align: center;
+      }
+    </style>
+    <!-- header -->
+    <header>
+      <div class="bar" id="bar">
+        <div class="btn_bar">
+          <a class="h0" href="https://www.bee-net.co.jp/shop/1/" target="_blank">掲載ページを見る</a>
+        </div>
+        <div class="bar_r">
+          <div class="user">高収入びーねっと！</div>
+          <ul class="li_barNav">
+            <li><a class="li_bar_index" href="/manage/top/">トップページ</a></li>
+            <li><a class="li_bar_info" href="/manage/notice/">お知らせ</a><span class="badge">！</span></li>
+            <li><a class="li_bar_logOut" href="/top/auth/logout/">ログアウト</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <div class="wrapper clearfix">
+      <div class="side" id="side_nav">
+        <div class="side_boxT">
+          <dl class="side_admin">
+            <dt>びーねっと管理ページ</dt>
+            <dd class="data">
+              <div>－</div>
+              <div><span class="f_em">－</span></div>
+            </dd>
+          </dl>
+          <!-- /.side_admin -->
+
+          <div class="side_update">
+            <div class="side_update1">
+              <a id="updaterank" href="/manage/top/updaterank/">
+                <div class="icon">上位更新を実行する<br />本日あと<span class="f_c_ee037c">－</span>回</div>
+                <div class="side_update1_date"><span class="f_em">上位更新</span>&nbsp;‐‐‐‐/‐‐/‐‐&nbsp;‐‐:‐‐</div>
+              </a>
+            </div>
+            <!--/.side_update1 -->
+
+            <a href="/manage/rank/">
+              <div class="side_update2 icon">
+                <div>自動更新を設定する</div>
+                <span class="info_unset">未設定</span>
+              </div>
+              <!--/.side_update2 -->
+            </a>
+          </div>
+          <!-- /.side_update -->
+        </div>
+        <!-- /.side_boxT -->
+
+        <ul class="nav_g">
+          <li>
+            <div class="nav_g_li1 nav_g_info1">応募情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area">
+                <a href="/manage/oubo/">応募情報一覧</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="nav_g_li1 nav_g_feature">特集</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/dekasegi/ini/">出稼ぎ特集</a>
+              </li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/tainyu/ini/">即日体入特集</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="nav_g_li1 nav_g_info2">基本情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/shop/ini/">店舗情報・募集内容</a></li>
+              <li class="link_box link_area"><a href="/manage/img/">大画像設定</a></li>
+              <li class="link_box link_area"><a href="/manage/img/detail/">小画像設定</a></li>
+              <li class="link_box link_area"><a href="/manage/kodawari/">こだわり設定</a></li>
+              <li class="link_box link_area"><a href="/manage/point/ini/">求人注目ポイント</a></li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/match/">マッチング</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_special">スペシャルコンテンツ</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/movie/">求人動画</a></li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/staffblog/">スタッフブログ</a>
+              </li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/staffblog/settingini/">ブログ設定</a>
+              </li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/staff/">スタッフ紹介</a>
+              </li>
+              <li class="link_box link_area"><a href="/manage/interview/">ガールズインタビュー</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_contents">コンテンツ</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/wanted/">求人・体入速報</a></li>
+              <li class="link_box link_area"><a href="/manage/picture/">店舗写真</a></li>
+              <li class="link_box link_area"><a href="/manage/shopqa/">よくある質問</a></li>
+              <li class="link_box link_area"><a href="/manage/userqa/">風俗嬢Q&amp;A掲示板</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_option">オプション</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/banner/">サイドバナーオプション</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_account">アカウント情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/account/">パスワード変更</a></li>
+              <li class="link_box link_area"><a href="/manage/shop/tantou/ini/">ご連絡先</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav_g_btn">
+          <li class="hO">
+            <a class="nav_g_pdf" href="https://www.bee-net.co.jp/data/manual_01.pdf" target="_blank"
+              >管理画面説明書(PDF)</a
+            >
+          </li>
+          <li class="hO">
+            <a class="nav_g_contact" href="/manage/form/ini/">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.side -->
+
+      <!-- contents -->
+      <div class="contents">
+        <div class="breadcrumb_wrap">
+          <ul class="breadcrumb">
+            <li><a href="/manage/top/">管理ページホーム</a></li>
+            <li><a href="/manage/timeline/">タイムライン管理</a></li>
+            <li>投稿</li>
+          </ul>
+        </div>
+
+        <section class="timeline">
+          <div class="ttl_wrap">
+            <h2 class="ttl2">タイムライン管理　記事投稿</h2>
+          </div>
+
+          <div><span class="f_c_red">*</span>&nbsp;今月の投稿回数　残り<span class="f_c_red">100/240回</span></div>
+
+          <table class="timeline-entry pattern">
+            <tbody>
+              <tr>
+                <th class="w300">画像・動画</th>
+                <td class="partition">
+                  <div id="media-preview-container" class="timeline-entry__media"></div>
+                  <div>
+                    <input
+                      type="file"
+                      id="media-upload"
+                      name="media_files[]"
+                      accept="image/jpeg, image/png, image/webp, image/heic, image/heif, video/mp4, video/quicktime"
+                      data-preview-target="#media-preview-container"
+                    />
+                  </div>
+                  <div>
+                    <div><span class="f_c_red">*</span>&nbsp;<span>GIFファイルは使用不可</span></div>
+                    <div>
+                      <span class="f_c_red">*</span>&nbsp;<span
+                        >アップロードした画像・動画は、表示に適したサイズへ自動で最適化されます。</span
+                      >
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>ハッシュタグ<span class="required">必須</span></th>
+                <td>
+                  <select name="" class="selectbox1 w200">
+                    <option value="">#ブログ</option>
+                    <option value="">#ブログ</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>本文<span class="required">必須</span></th>
+                <td>
+                  <textarea name="" id="timeline_message" rows="6" maxlength="200" cols="80"></textarea>
+                  <div class="mt10">
+                    200文字まで　<span class="timeline_message-textcount" data-target-id="timeline_message"
+                      >文字数[ <span class="textcount">5</span> ]</span
+                    >
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="timeline__button">
+            <a class="btn1 hO" href="javascript:void(0)">投稿する</a>
+          </div>
+
+          <div class="timeline-entry-note">
+            <div class="timeline-entry-note__heading">【注意事項】</div>
+            <div class="timeline-entry-note__text">
+              <p>
+                以下のいずれかに該当する動画は、予告なく削除せて頂く場合がございます。<br />またご投稿いただいた動画に関わる権利侵害等のトラブルについて、当社は一切の責任を負いかねますのでご了承ください。
+              </p>
+              <ul class="timeline-entry-note__list">
+                <li>・第三者または当社の財産、プライバシー、肖像権その他の権利・利益を侵害するもの</li>
+                <li>
+                  ・市販の楽曲、第三者が作成した映像・イラスト・写真・文章その他の著作物を、権利者の許可なく使用しているもの
+                </li>
+                <li>
+                  ・通行人の顔、車両のナンバープレート、氏名・住所など、本人の許可なく第三者を特定できる情報が写り込んでいるもの
+                </li>
+                <li>
+                  ・第三者の名誉・信用を毀損する表現を含むもの、または第三者の商標・ロゴ等を不正に使用しているもの
+                </li>
+                <li>・過度な性的表現、暴力的・残虐な表現、その他公序良俗に反する表現を含むもの</li>
+                <li>・その他、法令、規則または当社が定める基準に違反するもの</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <div class="btn_wrap">
+          <a class="btn2 b_170_c" href="/manage/staffblog/">一覧へもどる</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <p class="copyright">&copy;2001-2026 風俗求人高収入アルバイト情報サイトびーねっと All rights reserved.</p>
+    <a class="page_top guide" href="#">
+      <img src="/static/images/arrow_pageTop.png" width="20" height="21" alt="ページの上部に移動する" />
+    </a>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    ></script>
+    <script type="text/javascript" src="/static/js/jquery.blockUI.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/jquery.bxslider.min.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/jquery.easie.1.3.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/common.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/timeline.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/sys/common.js?20260529_0"></script>
+  </body>
+</html>
