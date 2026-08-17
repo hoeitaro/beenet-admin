@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+/* fileコントロールは非表示にする */
+.imorichfile input[type=file] {
+	display: none;
+}
+
+/* ファイル選択エリア */
+.imorichfile-select {
+    border: 1px dashed #000;
+    border-radius: 5px;
+    padding: 20px;
+	cursor: pointer;
+}
+.imorichfile-red {
+	color: #f00;
+}
+.imorichfile-strong {
+	font-weight: bold;
+}
+
+/* 編集エリア */
+.imorichfile-edit-area {
+	display: none;
+	text-align: center;
+}
+
+/* canvasのエリア */
+.imorichfile-canvas-area {
+	box-sizing: border-box;
+	position: relative;
+	border: solid 1px #999;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+/* canvas */
+.imorichfile-canvas-area canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* 画像のcanvas */
+.imorichfile-canvas-image {
+	z-index: 1;
+}
+/* マスクのcanvas(画像の上に重ねる) */
+.imorichfile-canvas-mask {
+	z-index: 2;
+}
+
+/* クリップ用のcanvas */
+.imorichfile-canvas-clip {
+	display: none;
+}

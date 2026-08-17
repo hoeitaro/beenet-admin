@@ -10,6 +10,7 @@
       type="text/css"
     />
     <link href="/static/css/jquery.bxslider.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/static/css/jquery.imo.richfile.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
     <link href="/static/css/index.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
     <link href="/static/css/timeline.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
   </head>
@@ -193,7 +194,8 @@
               <tr>
                 <th class="w300">画像</th>
                 <td class="partition">
-                  <div
+                  <div id="timeline_img_area"></div>
+                  <!-- <div
                     id="media-preview-container"
                     class="timeline-entry__media timeline-entry__media--icon timeline-entry__media--staff-img"
                   ></div>
@@ -214,7 +216,7 @@
                         >アップロードした画像は、表示に適したサイズへ自動で最適化されます。</span
                       >
                     </div>
-                  </div>
+                  </div> -->
                 </td>
               </tr>
             </tbody>
@@ -270,5 +272,16 @@
     <script type="text/javascript" src="/static/js/common.js?20260529_0"></script>
     <script type="text/javascript" src="/static/js/timeline.js?20260529_0"></script>
     <script type="text/javascript" src="/static/js/sys/common.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/jquery.imo.richfile_timeline.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/resize.js?20260529_0"></script>
+    <script type="text/javascript">
+      $(function () {
+        // リッチファイルを設定
+        $("#timeline_img_area").imorichfile({
+          width: 200,
+          height: 200,
+        });
+      });
+    </script>
   </body>
 </html>
