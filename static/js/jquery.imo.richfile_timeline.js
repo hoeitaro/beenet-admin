@@ -2,6 +2,7 @@
 
 //無名関数でプラグイン領域を定義(変数などの競合防止)
 (function ($) {
+  const MAX_IMAGE_SIZE = 20 * 1024 * 1024;
   //関数を定義してプラグインを割り当て
   $.fn.imorichfile = function (options) {
     //デフォルト設定
@@ -275,6 +276,11 @@
 
       if (!allowedTypes.includes(file.type)) {
         alert("JPEG、PNG、WebPファイルを指定してください。");
+        return;
+      }
+
+      if (file.size > MAX_IMAGE_SIZE) {
+        alert("ファイルサイズは20MB以下にしてください。");
         return;
       }
     }
