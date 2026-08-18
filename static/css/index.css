@@ -1673,6 +1673,19 @@ div[class^="balloon_"]:before {
   margin-left: 10px;
 }
 
+.kodawari .kodawari_note {
+	padding-left: 0.6em;
+	text-indent: -0.6em;
+}
+
+.kodawari .kodawari_button {
+	display: grid;
+	place-items: center;
+	width: 340px;
+	margin-top: 40px;
+	margin-inline: auto;
+}
+
 .li_kodawari > li {
   float: left;
   margin: 10px;
