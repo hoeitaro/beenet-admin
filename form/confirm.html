@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>風俗びーねっと－管理ページ</title>
+    <link
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+      media="screen"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/static/css/jquery.bxslider.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/static/css/index.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
+    <style type="text/css" media="screen">
+      <!--
+      .info2_item-warn {
+      	background: beige;
+      	border: 4px solid orange;
+      	color: red;
+      }
+
+      -->
+    </style>
+  </head>
+  <body>
+    <style>
+      .badge {
+        position: absolute;
+        top: 10px;
+        left: 28px;
+        font-size: 14px;
+        line-height: 13px;
+        border-radius: 50%;
+        width: 21px;
+        height: 21px;
+        background-color: #ff0000;
+        border: 4px solid #ff0000;
+        color: #ffffff;
+        text-align: center;
+      }
+    </style>
+    <!-- header -->
+    <header>
+      <div class="bar" id="bar">
+        <div class="btn_bar">
+          <a class="h0" href="https://www.bee-net.co.jp/shop/1/" target="_blank">掲載ページを見る</a>
+        </div>
+        <div class="bar_r">
+          <div class="user">高収入びーねっと！</div>
+          <ul class="li_barNav">
+            <li><a class="li_bar_index" href="/manage/top/">トップページ</a></li>
+            <li><a class="li_bar_info" href="/manage/notice/">お知らせ</a><span class="badge">！</span></li>
+            <li><a class="li_bar_logOut" href="/top/auth/logout/">ログアウト</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <div class="wrapper clearfix">
+      <div class="side" id="side_nav">
+        <div class="side_boxT">
+          <dl class="side_admin">
+            <dt>びーねっと管理ページ</dt>
+            <dd class="data">
+              <div>－</div>
+              <div><span class="f_em">－</span></div>
+            </dd>
+          </dl>
+          <!-- /.side_admin -->
+
+          <div class="side_update">
+            <div class="side_update1">
+              <a id="updaterank" href="/manage/top/updaterank/">
+                <div class="icon">上位更新を実行する<br />本日あと<span class="f_c_ee037c">－</span>回</div>
+                <div class="side_update1_date"><span class="f_em">上位更新</span>&nbsp;‐‐‐‐/‐‐/‐‐&nbsp;‐‐:‐‐</div>
+              </a>
+            </div>
+            <!--/.side_update1 -->
+
+            <a href="/manage/rank/">
+              <div class="side_update2 icon">
+                <div>自動更新を設定する</div>
+                <span class="info_unset">未設定</span>
+              </div>
+              <!--/.side_update2 -->
+            </a>
+          </div>
+          <!-- /.side_update -->
+        </div>
+        <!-- /.side_boxT -->
+
+        <ul class="nav_g">
+          <li>
+            <div class="nav_g_li1 nav_g_info1">応募情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area">
+                <a href="/manage/oubo/">応募情報一覧</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="nav_g_li1 nav_g_feature">特集</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/dekasegi/ini/">出稼ぎ特集</a>
+              </li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/tainyu/ini/">即日体入特集</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="nav_g_li1 nav_g_info2">基本情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/shop/ini/">店舗情報・募集内容</a></li>
+              <li class="link_box link_area"><a href="/manage/img/">大画像設定</a></li>
+              <li class="link_box link_area"><a href="/manage/img/detail/">小画像設定</a></li>
+              <li class="link_box link_area"><a href="/manage/kodawari/">こだわり設定</a></li>
+              <li class="link_box link_area"><a href="/manage/point/ini/">求人注目ポイント</a></li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/match/">マッチング</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_special">スペシャルコンテンツ</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/movie/">求人動画</a></li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/staffblog/">スタッフブログ</a>
+              </li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/staffblog/settingini/">ブログ設定</a>
+              </li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/staff/">スタッフ紹介</a>
+              </li>
+              <li class="link_box link_area"><a href="/manage/interview/">ガールズインタビュー</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_contents">コンテンツ</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/wanted/">求人・体入速報</a></li>
+              <li class="link_box link_area"><a href="/manage/picture/">店舗写真</a></li>
+              <li class="link_box link_area"><a href="/manage/shopqa/">よくある質問</a></li>
+              <li class="link_box link_area"><a href="/manage/userqa/">風俗嬢Q&amp;A掲示板</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_option">オプション</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/banner/">サイドバナーオプション</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_account">アカウント情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/account/">パスワード変更</a></li>
+              <li class="link_box link_area"><a href="/manage/shop/tantou/ini/">ご連絡先</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav_g_btn">
+          <li class="hO">
+            <a class="nav_g_pdf" href="https://www.bee-net.co.jp/data/manual_01.pdf" target="_blank"
+              >管理画面説明書(PDF)</a
+            >
+          </li>
+          <li class="hO">
+            <a class="nav_g_contact" href="/manage/form/ini/">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.side -->
+
+      <!-- contents -->
+
+      <div class="contents">
+        <div class="breadcrumb_wrap">
+          <ul class="breadcrumb">
+            <li><a href="/manage/top/">管理ページホーム </a></li>
+            <li>お問い合わせ</li>
+          </ul>
+        </div>
+
+        <form id="frm" action="/manage/form/comp" method="post">
+          <section>
+            <div class="ttl_wrap">
+              <h2 class="ttl2">お問い合わせ</h2>
+            </div>
+
+            <input type="hidden" id="agency_type" value="0" />
+            <table class="pattern mt20">
+              <tr>
+                <th class="w300">店名</th>
+                <td>高収入びーねっと！</td>
+              </tr>
+
+              <tr class="shopTr">
+                <th>ご担当者様 お名前</th>
+                <td>
+                  <div>漢字：根本</div>
+                  <div class="mt10">ふりがな：ねもと</div>
+                </td>
+              </tr>
+
+              <tr class="shopTr">
+                <th>ご担当者様 メールアドレス</th>
+                <td>
+                  imoto@hoei-kikaku.jp
+                  <div class="mt10">
+                    <span class="f_c_red">*</span>&nbsp;びーねっと事務局からのメールは、こちら宛てに送付させて頂きます。
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="shopTr">
+                <th>ご担当者様 電話番号</th>
+                <td>03-0000-0000</td>
+              </tr>
+
+              <tr>
+                <th>お問い合わせの種類</th>
+                <td>サービス内容についてのご質問</td>
+              </tr>
+
+              <tr>
+                <th>お問い合わせ内容</th>
+                <td>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe necessitatibus vero repudiandae
+                  molestiae earum. Reiciendis fuga et fugit animi odio quo harum! Sit cum deleniti unde libero eveniet
+                  quidem velit similique nobis inventore vel quas, optio alias aperiam ducimus animi necessitatibus?
+                  Natus iure quasi accusamus veniam adipisci? Expedita, enim possimus.
+                </td>
+              </tr>
+            </table>
+          </section>
+
+          <div class="btn_wrap btns">
+            <a class="btn2 btns_l b_170_c" href="">修正する</a>
+            <a class="btn1 hO" href="javascript:void()" onClick="aSubmit('frm')">送信する</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <p class="copyright">&copy;2001-2026 風俗求人高収入アルバイト情報サイトびーねっと All rights reserved.</p>
+    <a class="page_top guide" href="#">
+      <img src="/static/images/arrow_pageTop.png" width="20" height="21" alt="ページの上部に移動する" />
+    </a>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    ></script>
+    <script type="text/javascript" src="/static/js/jquery.blockUI.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/jquery.bxslider.min.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/jquery.easie.1.3.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/common.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/sys/common.js?20260529_0"></script>
+    <script type="text/javascript">
+      //<!--
+      function displayTanto() {
+        if ($("#agency_type").val() == 2) {
+          $(".shopTr").hide();
+          $(".agencyTr").show();
+        } else {
+          $(".shopTr").show();
+          $(".agencyTr").hide();
+        }
+      }
+      $(function () {
+        // 連絡先　表示設定
+        displayTanto();
+      });
+      //-->
+    </script>
+    <script>
+      // 最初の実行（htmlの読み込み完了後）
+      //window.onload = function () {
+      //  TimerCount();
+      //}
+
+      //function TimerCount(){
+      //  var xhr=new XMLHttpRequest();
+      //  // 非同期でリクエストを送信
+      //  xhr.open('POST', '/manage/top/leftnav/shop_id/1', true);
+      //  xhr.send();
+      //
+      //  // readyStateでリクエストの状態を判定
+      //  //   ・onreadystatechangeはreadyStateが変更されたタイミングで呼び出されます。
+      //  //   ・readyStateの内容は以下の通り
+      //  //   0:初期状態
+      //  //   1:リクエスト未送信(opne()後)
+      //  //   2:レスポンス未受信(send()後)
+      //  //   3:レスポンス中(サーバデータ受信中*firefoxではサイズの大きいデータ受信時は複数回発生することがあります)
+      //  //   4:レスポンス受信(サーバデータ受信完了)
+      //  xhr.onreadystatechange = function() {
+      //    if(this.readyState == 4) {
+      //      // 非同期のステータスが完了(4)の場合は後続処理
+      //      if(this.status == 200) {
+      //        // 正常終了(200)なら、レスポンスの内容を反映
+      //        document.getElementById("side_nav").innerHTML= xhr.responseText;
+      //      }
+      //    }
+      //  }
+      //}
+    </script>
+  </body>
+</html>
