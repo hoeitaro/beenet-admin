@@ -1,0 +1,452 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>風俗びーねっと－管理ページ</title>
+    <link
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+      media="screen"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/static/css/jquery.bxslider.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/static/css/index.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <style>
+      .badge {
+        position: absolute;
+        top: 10px;
+        left: 28px;
+        font-size: 14px;
+        line-height: 13px;
+        border-radius: 50%;
+        width: 21px;
+        height: 21px;
+        background-color: #ff0000;
+        border: 4px solid #ff0000;
+        color: #ffffff;
+        text-align: center;
+      }
+      .img_l_pc {
+        max-width: 560px;
+      }
+    </style>
+    <!-- header -->
+    <header>
+      <div class="bar" id="bar">
+        <div class="btn_bar">
+          <a class="h0" href="https://www.bee-net.co.jp/shop/1/" target="_blank">掲載ページを見る</a>
+        </div>
+        <div class="bar_r">
+          <div class="user">高収入びーねっと！</div>
+          <ul class="li_barNav">
+            <li><a class="li_bar_index" href="/manage/top/">トップページ</a></li>
+            <li><a class="li_bar_info" href="/manage/notice/">お知らせ</a><span class="badge">！</span></li>
+            <li><a class="li_bar_logOut" href="/top/auth/logout/">ログアウト</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <div class="wrapper clearfix">
+      <div class="side" id="side_nav">
+        <div class="side_boxT">
+          <dl class="side_admin">
+            <dt>びーねっと管理ページ</dt>
+            <dd class="data">
+              <div>－</div>
+              <div><span class="f_em">－</span></div>
+            </dd>
+          </dl>
+          <!-- /.side_admin -->
+
+          <div class="side_update">
+            <div class="side_update1">
+              <a id="updaterank" href="/manage/top/updaterank/">
+                <div class="icon">上位更新を実行する<br />本日あと<span class="f_c_ee037c">－</span>回</div>
+                <div class="side_update1_date"><span class="f_em">上位更新</span>&nbsp;‐‐‐‐/‐‐/‐‐&nbsp;‐‐:‐‐</div>
+              </a>
+            </div>
+            <!--/.side_update1 -->
+
+            <a href="/manage/rank/">
+              <div class="side_update2 icon">
+                <div>自動更新を設定する</div>
+                <span class="info_unset">未設定</span>
+              </div>
+              <!--/.side_update2 -->
+            </a>
+          </div>
+          <!-- /.side_update -->
+        </div>
+        <!-- /.side_boxT -->
+
+        <ul class="nav_g">
+          <li>
+            <div class="nav_g_li1 nav_g_info1">応募情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area">
+                <a href="/manage/oubo/">応募情報一覧</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="nav_g_li1 nav_g_feature">特集</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/dekasegi/ini/">出稼ぎ特集</a>
+              </li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/tainyu/ini/">即日体入特集</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="nav_g_li1 nav_g_info2">基本情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/shop/ini/">店舗情報・募集内容</a></li>
+              <li class="link_box link_area"><a href="/manage/img/">大画像設定</a></li>
+              <li class="link_box link_area"><a href="/manage/img/detail/">小画像設定</a></li>
+              <li class="link_box link_area"><a href="/manage/kodawari/">こだわり設定</a></li>
+              <li class="link_box link_area"><a href="/manage/point/ini/">求人注目ポイント</a></li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/match/">マッチング</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_special">スペシャルコンテンツ</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/movie/">求人動画</a></li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/staffblog/">スタッフブログ</a>
+              </li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/staffblog/settingini/">ブログ設定</a>
+              </li>
+              <li class="link_box link_area">
+                <span class="info_new">NEW</span><a href="/manage/staff/">スタッフ紹介</a>
+              </li>
+              <li class="link_box link_area"><a href="/manage/interview/">ガールズインタビュー</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_contents">コンテンツ</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/wanted/">求人・体入速報</a></li>
+              <li class="link_box link_area"><a href="/manage/picture/">店舗写真</a></li>
+              <li class="link_box link_area"><a href="/manage/shopqa/">よくある質問</a></li>
+              <li class="link_box link_area"><a href="/manage/userqa/">風俗嬢Q&amp;A掲示板</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_option">オプション</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/banner/">サイドバナーオプション</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="accordion nav_g_li1 nav_g_account">アカウント情報</div>
+            <ul class="nav_g_li2">
+              <li class="link_box link_area"><a href="/manage/account/">パスワード変更</a></li>
+              <li class="link_box link_area"><a href="/manage/shop/tantou/ini/">ご連絡先</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="nav_g_btn">
+          <li class="hO">
+            <a class="nav_g_pdf" href="https://www.bee-net.co.jp/data/manual_01.pdf" target="_blank"
+              >管理画面説明書(PDF)</a
+            >
+          </li>
+          <li class="hO">
+            <a class="nav_g_contact" href="/manage/form/ini/">お問い合わせ</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.side -->
+
+      <!-- contents -->
+
+      <div class="contents">
+        <div class="breadcrumb_wrap">
+          <ul class="breadcrumb">
+            <li><a href="/manage/top/">管理ページホーム</a></li>
+            <li>即日体入特集</li>
+          </ul>
+        </div>
+
+        <form id="frm" method="POST" action="/manage/tainyu/save/" enctype="multipart/form-data">
+          <section>
+            <div class="ttl_wrap">
+              <h2 class="ttl2">即日体入</h2>
+            </div>
+
+            <table class="pattern">
+              <tr>
+                <th>掲載<span class="required">必須</span></th>
+                <td class="radio_type1">
+                  <input type="radio" name="tainyu_display_flg" id="tainyu_display_flg-0" value="0" checked />
+                  <label for="tainyu_display_flg-0">非掲載</label>
+                  <input type="radio" name="tainyu_display_flg" id="tainyu_display_flg-1" value="1" />
+                  <label for="tainyu_display_flg-1">掲載</label>
+                </td>
+              </tr>
+              <tr>
+                <th class="w300">画像<span class="required">必須</span></th>
+                <td class="partition">
+                  <div class="img_l">
+                    <img
+                      class="img_l_pc"
+                      src="https://www.bee-net.co.jp/shop/1/tainyu_img_1.jpg?2018-08-28 12:03:06"
+                      width="100%"
+                      alt="大画像"
+                    />
+                  </div>
+                  <div>
+                    <input type="file" name="tainyu_img" id="tainyu_img" accept="image/*" />
+                  </div>
+                  <div>
+                    <div>
+                      <span class="f_c_red">*</span>&nbsp;<span class="f_em">JPEG</span>ファイルのみ使用できます。
+                    </div>
+                    <div>
+                      <span class="f_c_red">*</span>&nbsp;ファイルサイズは、<span class="f_em">200KB（キロバイト）</span
+                      >までです。
+                    </div>
+                    <div>
+                      <span class="f_c_red">*</span>&nbsp;縦横サイズは、<span class="f_em">横700×縦300</span
+                      >ピクセルです。
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>給与保証</th>
+                <td>
+                  <input
+                    type="text"
+                    name="tainyu_salary_sum"
+                    id="tainyu_salary_sum"
+                    value="50,000"
+                    class="w120 number div_sum"
+                  />
+                  <span>円</span>
+                  <span><span class="f_c_red">*</span>&nbsp;金額を数字のみで記入してください。</span>
+                </td>
+              </tr>
+              <tr>
+                <th class="w300">内容<span class="required">必須</span></th>
+                <td>
+                  <textarea
+                    name="tainyu_comment"
+                    id="tainyu_comment"
+                    class=""
+                    rows="6"
+                    cols="80"
+                    placeholder="例) 飛び込みOK！体入保証10万円！"
+                  ></textarea>
+                  <div class="mt10">
+                    200文字まで　<span class="tainyu_comment-textcount" data-target-id="tainyu_comment"
+                      >文字数[ <span class="textcount"></span> ]</span
+                    >
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </section>
+        </form>
+
+        <form id="preview_frm" method="post" target="_blank">
+          <div class="btn_wrap btns">
+            <a id="preview_pc" class="btn2 btn_preview" href="javascript:void(0)">更新前にプレビューを見る（PC版）</a>
+            <a id="preview_spn" class="btn2 btn_preview" href="javascript:void(0)"
+              >更新前にプレビューを見る（スマホ版）</a
+            >
+          </div>
+        </form>
+
+        <div class="btn_wrap">
+          <a class="btn1 hO btn_update" href="#" onClick="aSubmit('frm')">更新</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <p class="copyright">&copy;2001-2026 風俗求人高収入アルバイト情報サイトびーねっと All rights reserved.</p>
+    <a class="page_top guide" href="#">
+      <img src="/static/images/arrow_pageTop.png" width="20" height="21" alt="ページの上部に移動する" />
+    </a>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    ></script>
+    <script type="text/javascript" src="/static/js/jquery.blockUI.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/jquery.bxslider.min.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/jquery.easie.1.3.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/common.js?20260529_0"></script>
+    <script type="text/javascript" src="/static/js/sys/common.js?20260529_0"></script>
+    <script type="text/javascript">
+      //<!--
+      $(function () {
+        // 画像クリアボタンの表示制御
+        $(".preview_clear").each(function () {
+          if ($(this).parent().siblings(".preview").find("img").length > 0) {
+            $(this).parent().show();
+          }
+        });
+
+        // 画像選択
+        $(document).on("change", "input:file", function (e) {
+          // プレビューの読み込み
+          var file = e.target.files[0]; // イメージファイル
+          var preview = $(this).parent().prev(); // プレビュー表示エリア
+          var clear = $(this).parent().next(); // クリアボタン表示エリア
+          var reader = new FileReader();
+          var target = $(this).data("target");
+
+          reader.onload = function (file) {
+            preview.empty();
+
+            if (preview.hasClass("img_l")) {
+              preview.append($('<img width="100%" alt="大画像">').attr({ src: this.result }));
+            } else {
+              var img = new Image();
+              img.src = file.target.result;
+
+              img.onload = function () {
+                if (this.width >= this.height) {
+                  preview.append(
+                    $('<img width="320" height="auto" data-target="' + target + '">').attr({ src: this.src }),
+                  );
+                } else {
+                  preview.append(
+                    $('<img width="auto" height="240" data-target="' + target + '">').attr({ src: this.src }),
+                  );
+                }
+              };
+            }
+          };
+          reader.readAsDataURL(file);
+
+          // 画像の削除状態を解除
+          clear.children(".img_state").html("");
+          clear.children(".img_del_flg").val(0);
+          clear.show();
+        });
+
+        // 画像クリア
+        $(".preview_clear").on("click", function () {
+          // プレビュークリア
+          $(this).parent().siblings(".preview").find("img").remove();
+
+          // ファイル初期化
+          var target = $(this).data("target");
+          $("#" + target).replaceWith('<input type="file" id="' + target + '" name="' + target + '" accept="image/*">');
+
+          if ($(this).siblings(".img_flg").val() == 1) {
+            // 画像が登録済みデータの場合は削除フラグを設定
+            $(this).siblings(".img_del_flg").val(1);
+          }
+          $(this).parent().hide();
+        });
+
+        // PC or スマホのプレビューボタンを押した
+        $("#preview_frm .btn2.btn_preview").click(function () {
+          var splits = $(this).attr("id").split("_");
+          var platform = splits[1];
+          var url;
+
+          if (platform == "pc") {
+            url = "https://www.bee-net.co.jp/shop/_preview.php?preview=15";
+          } else {
+            url = "https://spn.bee-net.co.jp/shop/_preview.php?preview=15";
+          }
+
+          // 画像系は一旦リセット
+          $('#preview_frm input[name="tainyu_img"]').val("");
+          for (var i = 1; i <= 2; ++i) {
+            $('#preview_frm input[name="tainyu_img_gift' + i + '"]').val("");
+          }
+
+          // 画像プレビューに使用されている src を hidden にセット
+          $("#frm .img_l img").each(function (index, element) {
+            $('#preview_frm input[name="tainyu_img"]').val($(element).attr("src"));
+          });
+          $("#frm .preview img").each(function (index, element) {
+            $('#preview_frm input[name="' + $(element).data("target") + '"]').val($(element).attr("src"));
+          });
+
+          // その他の情報も hidden にセット
+          $('#preview_frm input[name="tainyu_comment"]').val($('#frm textarea[name="tainyu_comment"]').val());
+          $('#preview_frm input[name="tainyu_wanted_capacity"]').val(
+            $('#frm select[name="tainyu_wanted_capacity"]').val(),
+          );
+          $('#preview_frm input[name="tainyu_salary_type"]').val($('#frm select[name="tainyu_salary_type"]').val());
+          $('#preview_frm input[name="tainyu_salary_sum"]').val($('#frm input[name="tainyu_salary_sum"]').val());
+          $('#preview_frm input[name="tainyu_hosho_flg"]').val($('#frm select[name="tainyu_hosho_flg"]').val());
+          $("#frm .tainyu_koshu").each(function (index, element) {
+            $('#preview_frm input[name="' + $(element).attr("name") + '"]').val(
+              $(element).is(":checked") ? $(element).val() : 0,
+            );
+          });
+          for (var i = 1; i <= 2; ++i) {
+            $('#preview_frm input[name="tainyu_comment_gift' + i + '"]').val(
+              $('#frm input[name="tainyu_comment_gift' + i + '"]').val(),
+            );
+          }
+          $("#frm .tainyu_id_setting").each(function (index, element) {
+            $('#preview_frm input[name="' + $(element).attr("name") + '"]').val($(element).val());
+          });
+          $('#preview_frm input[name="tainyu_about_id"]').val($('#frm textarea[name="tainyu_about_id"]').val());
+
+          // 遷移先を設定しPOST送信
+          $("#preview_frm").attr("action", url).submit();
+        });
+      });
+      //-->
+    </script>
+    <script>
+      // 最初の実行（htmlの読み込み完了後）
+      //window.onload = function () {
+      //  TimerCount();
+      //}
+
+      //function TimerCount(){
+      //  var xhr=new XMLHttpRequest();
+      //  // 非同期でリクエストを送信
+      //  xhr.open('POST', '/manage/top/leftnav/shop_id/1', true);
+      //  xhr.send();
+      //
+      //  // readyStateでリクエストの状態を判定
+      //  //   ・onreadystatechangeはreadyStateが変更されたタイミングで呼び出されます。
+      //  //   ・readyStateの内容は以下の通り
+      //  //   0:初期状態
+      //  //   1:リクエスト未送信(opne()後)
+      //  //   2:レスポンス未受信(send()後)
+      //  //   3:レスポンス中(サーバデータ受信中*firefoxではサイズの大きいデータ受信時は複数回発生することがあります)
+      //  //   4:レスポンス受信(サーバデータ受信完了)
+      //  xhr.onreadystatechange = function() {
+      //    if(this.readyState == 4) {
+      //      // 非同期のステータスが完了(4)の場合は後続処理
+      //      if(this.status == 200) {
+      //        // 正常終了(200)なら、レスポンスの内容を反映
+      //        document.getElementById("side_nav").innerHTML= xhr.responseText;
+      //      }
+      //    }
+      //  }
+      //}
+    </script>
+  </body>
+</html>
