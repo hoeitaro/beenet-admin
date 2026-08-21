@@ -11,6 +11,7 @@
     />
     <link href="/static/css/jquery.bxslider.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
     <link href="/static/css/index.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/static/css/feature.css?20260529_0" media="screen" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <style>
@@ -27,9 +28,6 @@
         border: 4px solid #ff0000;
         color: #ffffff;
         text-align: center;
-      }
-      .img_l_pc {
-        max-width: 560px;
       }
     </style>
     <!-- header -->
@@ -186,7 +184,7 @@
         </div>
 
         <form id="frm" method="POST" action="/manage/dekasegi/save/" enctype="multipart/form-data">
-          <section class="dekasegi">
+          <section class="feature">
             <div class="ttl_wrap">
               <h2 class="ttl2">出稼ぎ</h2>
             </div>
@@ -233,13 +231,48 @@
               <tr>
                 <th>内容<span class="required">必須</span></th>
                 <td>
+                  <div class="feature-template">
+                    <div class="feature-template_tooltip">
+                      テンプレート
+                      <button class="feature-template_tooltip-icon" type="button">
+                        ?<span class="tooltip"
+                          >記入例としてテンプレートをご用意しています。必要に応じて編集してご利用ください。</span
+                        >
+                      </button>
+                    </div>
+                    <div class="feature-template_actions">
+                      <button
+                        type="button"
+                        class="js-template-btn"
+                        data-target="template"
+                        data-template="【出稼ぎ保証プラン】
+・3日コース……00,000円
+・7日コース……00,000円
+・30コース……00,000円
+※条件※"
+                      >
+                        出稼ぎ保証プラン
+                      </button>
+
+                      <button
+                        type="button"
+                        class="js-template-btn"
+                        data-target="template"
+                        data-template="【交通費について】
+00,000円まで支給します。
+※条件※"
+                      >
+                        交通費について
+                      </button>
+                    </div>
+                  </div>
                   <textarea
                     name="dekasegi_comment"
                     id="dekasegi_comment"
-                    class=""
+                    class="feature_textarea js-template-input"
                     rows="6"
                     cols="80"
-                    placeholder="例) 交通費全額支給！1週間で保証20万の保証あり！※条件あり"
+                    data-target="template"
                   ></textarea>
                   <div class="mt10">
                     200文字まで　<span class="dekasegi_comment-textcount" data-target-id="dekasegi_comment"
@@ -284,7 +317,6 @@
     <script type="text/javascript" src="/static/js/common.js?20260529_0"></script>
     <script type="text/javascript" src="/static/js/sys/common.js?20260529_0"></script>
     <script type="text/javascript">
-      //<!--
       $(function () {
         // 画像クリアボタンの表示制御
         $(".preview_clear").each(function () {
@@ -408,39 +440,23 @@
           // 遷移先を設定しPOST送信
           $("#preview_frm").attr("action", url).submit();
         });
-      });
-      //-->
-    </script>
-    <script>
-      // 最初の実行（htmlの読み込み完了後）
-      //window.onload = function () {
-      //  TimerCount();
-      //}
 
-      //function TimerCount(){
-      //  var xhr=new XMLHttpRequest();
-      //  // 非同期でリクエストを送信
-      //  xhr.open('POST', '/manage/top/leftnav/shop_id/1', true);
-      //  xhr.send();
-      //
-      //  // readyStateでリクエストの状態を判定
-      //  //   ・onreadystatechangeはreadyStateが変更されたタイミングで呼び出されます。
-      //  //   ・readyStateの内容は以下の通り
-      //  //   0:初期状態
-      //  //   1:リクエスト未送信(opne()後)
-      //  //   2:レスポンス未受信(send()後)
-      //  //   3:レスポンス中(サーバデータ受信中*firefoxではサイズの大きいデータ受信時は複数回発生することがあります)
-      //  //   4:レスポンス受信(サーバデータ受信完了)
-      //  xhr.onreadystatechange = function() {
-      //    if(this.readyState == 4) {
-      //      // 非同期のステータスが完了(4)の場合は後続処理
-      //      if(this.status == 200) {
-      //        // 正常終了(200)なら、レスポンスの内容を反映
-      //        document.getElementById("side_nav").innerHTML= xhr.responseText;
-      //      }
-      //    }
-      //  }
-      //}
+        $(".js-template-btn").on("click", function () {
+          var templateText = $(this).data("template");
+          var targetName = $(this).data("target");
+
+          var $targetInput = $('.js-template-input[data-target="' + targetName + '"]');
+
+          var currentText = $targetInput.val();
+          if (currentText) {
+            $targetInput.val(currentText + "\n" + templateText);
+          } else {
+            $targetInput.val(templateText);
+          }
+
+          $targetInput.trigger("change");
+        });
+      });
     </script>
   </body>
 </html>
