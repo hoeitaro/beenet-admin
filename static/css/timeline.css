@@ -73,6 +73,7 @@
 .timeline-table__img {
 	width: 180px;
 	aspect-ratio: 1;
+	margin-inline: auto;
 	background-color: #999;
 }
 .timeline-table__img img {
